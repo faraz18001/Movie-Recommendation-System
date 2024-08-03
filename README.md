@@ -117,7 +117,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - OpenAI for providing the GPT model
 - Facebook Research for FAISS
 - The creators of LangChain for their excellent library
-
-## Contact
-
-[Your contact information or how to reach out for questions/support]
