@@ -2,6 +2,27 @@
 
 This project implements a movie recommendation system using natural language processing and similarity search. It utilizes a pre-trained language model and FAISS (Facebook AI Similarity Search) to provide movie suggestions based on user queries.
 
+## Flow Chart
+
+```mermaid
+graph TD
+    A[Start] --> B[Load Movie Metadata]
+    B --> C[Preprocess Data]
+    C --> D{FAISS Index Exists?}
+    D -->|Yes| E[Load FAISS Index]
+    D -->|No| F[Create FAISS Index]
+    F --> G[Save FAISS Index]
+    E --> H[Wait for User Query]
+    G --> H
+    H --> I[Process Query with GPT Model]
+    I --> J[Perform Similarity Search]
+    J --> K[Generate Recommendations]
+    K --> L[Display Results to User]
+    L --> M{Another Query?}
+    M -->|Yes| H
+    M -->|No| N[End]
+```
+
 ## Features
 
 - Load and preprocess movie metadata
@@ -28,17 +49,20 @@ You also need to set up an OpenAI API key as an environment variable.
 ## Installation
 
 1. Clone this repository:
+
    ```
    git clone https://github.com/yourusername/movie-recommendation-system.git
    cd movie-recommendation-system
    ```
 
 2. Install the required packages:
+
    ```
    pip install -r requirements.txt
    ```
 
 3. Set up your OpenAI API key as an environment variable:
+
    ```
    export OPENAI_API_KEY='your-api-key-here'
    ```
@@ -49,6 +73,7 @@ You also need to set up an OpenAI API key as an environment variable.
    - Ensure you have the `movies_metadata.csv` file in the project directory.
 
 2. Run the main script:
+
    ```
    python main.py
    ```
@@ -73,14 +98,10 @@ for doc in docs:
     print(f"Content: {doc.page_content[:100]}...")  # Truncated for brevity
 ```
 
-## Example OutPut
-<img width="626" alt="matrix factorization algortimh using langchain" src="https://github.com/user-attachments/assets/ecb6537c-3aba-4174-b11e-f89a86c3ccfe">
-
-
 ## Project Structure
 
 - `main.py`: The main script that runs the movie recommendation system
-- `movies_metadata.csv`: The dataset containing movie information--->https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
+- `movies_metadata.csv`: The dataset containing movie information (available at https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
 - `faiss_movie_index.pkl`: The FAISS index file (created after first run)
 
 ## Contributing
@@ -89,10 +110,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
 - OpenAI for providing the GPT model
 - Facebook Research for FAISS
 - The creators of LangChain for their excellent library
+
+## Contact
+
+[Your contact information or how to reach out for questions/support]
